@@ -1,21 +1,25 @@
 {
   "files": {
     "main.css": "/data-analyst-portfolio/static/css/main.073c9b0a.css",
-    "main.js": "/data-analyst-portfolio/static/js/main.93e32524.js",
+    "main.js": "/data-analyst-portfolio/static/js/main.78403abf.js",
     "static/js/787.6f55c0ed.chunk.js": "/data-analyst-portfolio/static/js/787.6f55c0ed.chunk.js",
     "static/media/AboutMe.png": "/data-analyst-portfolio/static/media/AboutMe.68db3bb63b73c17049b7.png",
     "static/media/AverageTimeEachMonth.jpeg": "/data-analyst-portfolio/static/media/AverageTimeEachMonth.d4c8632f07d86c78c8a6.jpeg",
     "static/media/ElectricityDemandJan.png": "/data-analyst-portfolio/static/media/ElectricityDemandJan.7e36a832df9639d7a057.png",
     "static/media/AverageTimeFebNov.jpeg": "/data-analyst-portfolio/static/media/AverageTimeFebNov.61497ecdbf4f805aa5eb.jpeg",
     "static/media/Day1highestdemandelectricity.png": "/data-analyst-portfolio/static/media/Day1highestdemandelectricity.34be965ad743fba9dbd4.png",
+    "static/media/scatterplotmale.jpeg": "/data-analyst-portfolio/static/media/scatterplotmale.6ed40b6ac1c2383409c1.jpeg",
     "static/media/ElectricityDemandMonths.png": "/data-analyst-portfolio/static/media/ElectricityDemandMonths.671b20d2732c23e55306.png",
+    "static/media/daystostartbiz.jpeg": "/data-analyst-portfolio/static/media/daystostartbiz.d55f5bf2863f324855eb.jpeg",
+    "static/media/countrybestbizregulations.jpeg": "/data-analyst-portfolio/static/media/countrybestbizregulations.a060adca69eabdf98d51.jpeg",
+    "static/media/scatterplotfemale.jpeg": "/data-analyst-portfolio/static/media/scatterplotfemale.c73b3cf19e834886202a.jpeg",
     "index.html": "/data-analyst-portfolio/index.html",
     "main.073c9b0a.css.map": "/data-analyst-portfolio/static/css/main.073c9b0a.css.map",
-    "main.93e32524.js.map": "/data-analyst-portfolio/static/js/main.93e32524.js.map",
+    "main.78403abf.js.map": "/data-analyst-portfolio/static/js/main.78403abf.js.map",
     "787.6f55c0ed.chunk.js.map": "/data-analyst-portfolio/static/js/787.6f55c0ed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.93e32524.js"
+    "static/js/main.78403abf.js"
   ]
 }
