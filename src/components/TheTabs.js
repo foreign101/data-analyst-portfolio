@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
+
 
 const headerStyle ={
   position: "relative",
@@ -26,9 +26,7 @@ export default function TheTabs() {
      return (
        <div>
                <Tabs value={value}  onChange={handleChange} indicatorColor="secondary">
-                   <Button href="/">
-                     <h1 style={headerStyle}>Tobis Portfolio</h1>
-                   </Button>
+                   <h1 style={headerStyle}>Tobis Portfolio</h1>
                    <Tab label="Home" value={1} to="/" component={Link} style={TabStyle}/>
                    <Tab label="About" value={2} to="/About" component={Link} style={TabStyle}/>
                    <Tab label="Portfolio" value={3} to="/Portfolio" component={Link} style={TabStyle}/>  

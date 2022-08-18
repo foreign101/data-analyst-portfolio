@@ -9,6 +9,10 @@ import AverageTimeFebNov from '../assets/AverageTimeFebNov.jpeg'
 import Day1highestdemandelectricity from '../assets/Day1highestdemandelectricity.png'
 import ElectricityDemandJan from '../assets/ElectricityDemandJan.png'
 import ElectricityDemandMonths from '../assets/ElectricityDemandMonths.png'
+import countrybestbizregulations from '../assets/countrybestbizregulations.jpeg'
+import daystostartbiz from '../assets/daystostartbiz.jpeg'
+import scatterplotfemale from '../assets/scatterplotfemale.jpeg'
+import scatterplotmale from '../assets/scatterplotmale.jpeg'
 
 const textStyle= {
     color:"black"
@@ -43,7 +47,7 @@ const divContainer = {
   flexDirection: "row",
   justifyContent: "center",
   alignItems:"center",
-  marginTop: 85,
+  marginTop: 99,
 }
 
 const projectContainer = {
@@ -124,9 +128,9 @@ function Portfolio() {
             </div>
             <div style={projectContainer}>
               <Button onClick={() => {setClicked("Open Project 3"); handleOpen();}} size="large" variant="outlined" color="inherit">Open Project #3</Button>
-                <div style={{margin:20}}>Data Analysis Project #3 | Loading...</div>
+                <div style={{margin:20}}>Data Analysis Project #3 | Ease of doing business(2019)</div>
                 <div style ={paraOutline}>
-                  <p>Loading...</p>
+                  <p>Using statistical models, I analyzed the countries that had best business regulations vs days it took to start a business(male/female)</p>
                 </div>
             </div>
             <Modal open={open}>
@@ -290,7 +294,85 @@ function Portfolio() {
                  </div>
                 }
                 {clicked==="Open Project 3" &&
-                  <h1>Loading...</h1>
+                  <div>
+                  <div style={modalDiv}>
+                    <div>
+                      <h1>Overview:</h1>
+                      <p style={textStyle}>
+                       As someone who is interested in starting a business in the near future, I was curious to know which countries had the
+                       best business regulations. I found multiple datasets on World Bank which showed business regulations based on ease and the 
+                       days it took to start a business(males and females) in 2019.
+                      </p>
+                    </div>
+                    <div style={{backgroundColor: "#5f7954", marginLeft:"auto", marginRight:"auto", height: height, width: 900, overflow:overflow}}>
+                      <h1 style={{paddingLeft:7}}>Process:</h1>
+                      {processclicked? <Button onClick={() => {setprocessClicked(false)}} variant="outlined" color="inherit" style={button}>Close</Button>
+                      : <Button onClick={() => {setprocessClicked(true)}} variant="outlined" color="inherit" style={button}>Show</Button>}
+                      <div style= {{paddingLeft:20, paddingRight:20}}>
+                          <h1 style={header}># Read data and skipped rows to bypass parseError</h1>
+                          <p>1. businessease = pd.read_csv("businessease.csv", skiprows=4)</p>
+                          <h1 style={header}># select specific columns needed</h1>
+                          <p>2. year = businessease[["Country Name", "Country Code", "Indicator Name", "2019" ]]</p>
+                          <h1 style={header}># drop nan rows</h1>
+                          <p>3. newdata = year.dropna()</p>
+                          <h1 style={header}># Read days it took to start a business(female)</h1>
+                          <p>4. daysStartBizFemale = pd.read_csv("daysTakesStartBizFemale.csv", skiprows=4)</p>
+                          <h1 style={header}># Read days it took to start a business(male)</h1>
+                          <p>5. daysStartBizMale = pd.read_csv("daysTakesStartBizMale.csv", skiprows=4)</p>
+                          <h1 style={header}># merged male/female datasets to ease of business data</h1>
+                          <p>6. merged_data = newdata.merge(yearBizFemale_renamed, how="left").merge(yearBizmale_renamed, how="left")</p>
+                          <h1 style={header}># calculated correlation coefficient between ease of business and male/female(days)</h1>
+                          <p>7. femaleDaysCountryReg = merged_data[["2019", "female(days)"]]</p>
+                          <p>print(femaleDaysCountryReg.corr())</p>
+                      </div>
+                    <div>
+                      <h1 style={{paddingLeft:7}}>#Plot 1</h1>
+                          <ul>
+                              <li>less_5.plot.barh(x="Country Name", y="2019",align="center")</li>
+                              <li>plt.xlabel("values(1=best)")</li>
+                              <li>plt.title("Which country has best business regulations?")</li>
+                              <li>plt.tight_layout()</li>
+                              <li>plt.show()</li>
+                          </ul>
+                    </div>
+                    <div>
+                      <h1 style={{paddingLeft:7}}>#Plot 2</h1>
+                          <ul>
+                              <li>correlation.plot.scatter(x="2019", y="female(days)", color="LightBlue", label="female")</li>
+                              <li>correlation.plot.scatter(x="2019", y="male(days)", color="DarkBlue", label="male")</li>
+                              <li>plt.xlabel("values(1=best)")</li>
+                              <li>plt.title("days it took to start a business vs ease of business regulations(2019)")</li>
+                              <li>plt.tight_layout()</li>
+                              <li>plt.show()</li>
+                          </ul>
+                    </div>
+                    <div>
+                      <h1 style={{paddingLeft:7}}>#Plot 3</h1>
+                          <ul>
+                              <li>column.plot.bar(x="Country Name")</li>
+                              <li>plt.ylabel("Days")</li>
+                              <li>plt.title("Days it took to start a business in countries w/ best regulations(2019)")</li>
+                              <li>plt.tight_layout()</li>
+                              <li>plt.show()</li>
+                          </ul>
+                    </div>
+                 </div>
+                 <div>
+                    <h1>Findings:</h1>
+                    <p style={textStyle}>Using Python, Pandas, and MatplotLib, I discovered which countries had best business regulations in 2019.
+                    Suprisingly, there was not a strong correlation between business regulations and number of days it took to start a business(males/females).
+                    That is a country having a low or high value did not affect the number of days it took to start a business(males/females).
+                    </p>
+                </div>
+                <div>
+                    <h1>Visualization:</h1>
+                    <img src={countrybestbizregulations} width= "600" height="600" objectFit="contain" alt="Country w best business regulations graph"></img>
+                    <img src={scatterplotfemale} width="600" height="500" objectFit="contain" alt="Scatter plot of days took to start business(female)"></img>
+                    <img src={scatterplotmale} width="600" height="500" objectFit="contain" alt="Scatter plot of days took to start business(male)"></img>
+                    <img src={daystostartbiz} width="600" height="500" objectFit="contain" alt="days it took to start a business graph"></img>
+                </div>  
+                </div>
+               </div>
                 }
              </Box>
             </Modal> 
